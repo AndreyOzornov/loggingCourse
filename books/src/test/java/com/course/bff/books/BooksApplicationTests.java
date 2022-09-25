@@ -1,4 +1,4 @@
-package com.course.bff.authors;
+package com.course.bff.books;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CourseServicemeshAuthorsApplicationTests {
+public class BooksApplicationTests {
 
     @Test
     public void contextLoads() {
