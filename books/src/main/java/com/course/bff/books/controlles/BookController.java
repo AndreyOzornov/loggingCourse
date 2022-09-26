@@ -51,9 +51,16 @@ public class BookController {
     @GetMapping()
     public Collection<BookResponse> getBooks() {
         logger.info("Get book list");
+        logger.info("Throwing Exception");
+        for (int i = 0; i < 3; i++) {
+            if (i == 1) {
+                throw new RuntimeException();
+            }
+        }
         List<BookResponse> bookResponses = new ArrayList<>();
         this.bookService.getBooks().forEach(book -> {
             BookResponse bookResponse = createBookResponse(book);
+            redisTemplate.convertAndSend(redisTopic, book);
             bookResponses.add(bookResponse);
         });
 
